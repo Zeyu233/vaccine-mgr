@@ -1,0 +1,23 @@
+{
+  "name": "vaccine-mgr",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./vaccine-mgr-fe && npm run build && cd ../vaccine-mgr-be && npm start",
+    "stop": "cd vaccine-mgr-be && npm run stop",
+    "service": "cd vaccine-mgr-be && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hiNISAL/vaccine-mgr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hiNISAL/vaccine-mgr/issues"
+  },
+  "homepage": "https://github.com/hiNISAL/vaccine-mgr#readme"
+}
