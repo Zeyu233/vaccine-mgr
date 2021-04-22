@@ -1,5 +1,5 @@
 const TopicMgr = {
-  // 商品名
+  // 名称
   name: String,
   // 价格
   price: Number,

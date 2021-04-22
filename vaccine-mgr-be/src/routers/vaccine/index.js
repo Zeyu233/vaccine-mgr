@@ -26,8 +26,50 @@ const router = new Router({
   prefix: '/vaccine',
 });
 
+router.get('/listOrd', async (ctx) => {
+  // console.log("listMAx")
+  let = {
+    size = 5,
+    order
+  } = ctx.query;
+
+  size = Number(size);
+  order = Number(order);
+  // console.log(order);
+  let list;
+  if (order == 1) {
+    list = await Vaccine
+      .find()
+      .sort({
+        count: 1,
+      })
+      .limit(size)
+      .exec();
+
+      // console.log("qqqq")
+  } else {
+    list = await Vaccine
+      .find()
+      .sort({
+        count: -1,
+      })
+      .limit(size)
+      .exec();
+
+      // console.log("1111")
+  }
+  ctx.body = {
+    data: {
+      list,
+      size,
+    },
+    code: 1,
+    msg: '获取列表成功',
+  };
+});
+
 router.get('/list', async (ctx) => {
-  // https://aa.cc.com/user?page=2&size=20&keyword=书名#fdsafds
+
   const {
     page = 1,
     keyword = '',
@@ -111,7 +153,7 @@ router.post('/update/count', async (ctx) => {
     return;
   }
 
-  // 找到了书
+  // 找到了
   if (type === GOOD_CONST.IN) {
     // 入库操作
     num = Math.abs(num);
@@ -131,8 +173,9 @@ router.post('/update/count', async (ctx) => {
   }
 
   const res = await vaccine.save();
-
+  // console.log(vaccine);
   const log = new InventoryLog({
+    name:vaccine.name,
     num: Math.abs(num),
     type,
   });

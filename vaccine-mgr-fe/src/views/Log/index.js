@@ -6,6 +6,7 @@ import { message } from 'ant-design-vue';
 
 export default defineComponent({
   props: {
+    // 是否为管理员
     simple: Boolean,
   },
   setup(props) {
@@ -50,7 +51,6 @@ export default defineComponent({
           l.forEach((item) => {
             item.action = getLogInfoByPath(item.request.url);
           });
-
           list.value = l;
           total.value = t;
         });

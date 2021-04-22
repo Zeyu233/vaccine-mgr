@@ -20,7 +20,14 @@ router.get('/list', async (ctx) => {
 
   const list = await Log
     .find({
-      show: true,
+      $and:[
+        {
+          show: true,
+        },
+        {
+          "request.url":/update/,
+        }
+      ]
     })
     .sort({
       _id: -1,
@@ -29,7 +36,16 @@ router.get('/list', async (ctx) => {
     .limit(size)
     .exec();
 
-  const total = await Log.countDocuments().exec();
+  const total = await Log.countDocuments({
+    $and:[
+      {
+        show: true,
+      },
+      {
+        "request.url":/update/,
+      }
+    ]
+  }).exec();
 
   ctx.body = {
     data: {

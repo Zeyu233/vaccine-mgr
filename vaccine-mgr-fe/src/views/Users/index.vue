@@ -41,7 +41,7 @@
           :data-source="list"
         >
           <template #createdAt="{ record }">
-            {{ formatTimestamp(record.meta.createdAt) }}
+            {{ formatTimestamp(record.meta.createdAt).date1 }}
           </template>
 
           <template #character="{ record }">

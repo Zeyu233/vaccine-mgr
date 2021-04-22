@@ -9,7 +9,9 @@ import { regDirectives } from '@/helpers/directive';
 import _ from '@/config/common';
 
 import 'ant-design-vue/dist/antd.css';
+// import echarts from 'echarts';
 
+// Vue.prototype.$echarts = echarts;
 const app = createApp(App);
 
 regDirectives(app);

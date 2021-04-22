@@ -50,7 +50,7 @@
         :scroll="{ x: 'max-content' }"
       >
         <template #producedDate="data">
-          {{ formatTimestamp(data.record.producedDate) }}
+          {{ formatTimestamp(data.record.producedDate).date2 }}
         </template>
 
         <template #classify="{ record }">

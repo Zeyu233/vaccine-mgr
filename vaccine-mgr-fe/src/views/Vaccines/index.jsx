@@ -170,10 +170,10 @@ export default defineComponent({
               });
 
               if (one) {
-                console.log(num);
+                // console.log(num);
                 one.count = one.count + num;
 
-                message.success(`成功${word} ${Math.abs(num)} 本书`);
+                message.success(`成功${word} ${Math.abs(num)} 件`);
               }
             });
         },
@@ -204,7 +204,7 @@ export default defineComponent({
 
             result(res)
               .success(({ data: { addCount } }) => {
-                message.success(`成功添加 ${addCount} 本书`);
+                message.success(`成功添加 ${addCount} 件`);
 
                 getList();
               });

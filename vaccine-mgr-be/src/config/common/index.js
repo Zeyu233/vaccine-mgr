@@ -7,5 +7,5 @@ module.exports = {
     TOPIC_MGR: TopicMgr,
   },
 
-  KEYWORD: '商品',
+  KEYWORD: '疫苗',
 };

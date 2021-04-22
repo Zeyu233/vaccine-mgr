@@ -12,3 +12,13 @@ export const list = (type = 'IN_COUNT', page = 1, size = 20) => {
     },
   );
 };
+
+export const listAll = (page = 1, size = 20) => {
+  return get(
+    '/inventory-log/listAll',
+    {
+      page,
+      size,
+    },
+  );
+};

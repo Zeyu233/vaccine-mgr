@@ -17,6 +17,11 @@ export default [
     onlyAdmin: true,
   },
   {
+    title: `数据统计`,
+    url: '/RepStatistics',
+    onlyAdmin: false,
+  },
+  {
     title: '操作日志',
     url: '/log',
     onlyAdmin: true,

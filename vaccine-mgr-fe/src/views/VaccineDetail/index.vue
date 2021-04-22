@@ -30,7 +30,7 @@
         <div class="items">
           <div class="item">
             <div class="title">生产日期</div>
-            <div class="content">{{ formatTimestamp(d.producedDate) }}</div>
+            <div class="content">{{ formatTimestamp(d.producedDate).date2 }}</div>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             :pagination="false"
           >
             <template #createdAt="{ record }">
-              {{ formatTimestamp(record.meta.createdAt) }}
+              {{ formatTimestamp(record.meta.createdAt).date1 }}
             </template>
           </a-table>
         </div>

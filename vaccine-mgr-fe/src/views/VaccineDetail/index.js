@@ -37,7 +37,7 @@ export default defineComponent({
     const logCurPage = ref(1);
     const curLogType = ref('IN_COUNT');
 
-    // 获取商品详细信息
+    // 获取疫苗详细信息
     const getDetail = async () => {
       const res = await vaccine.detail(id);
 

@@ -19,7 +19,7 @@
           :scroll="{ x: 'max-content' }"
         >
           <template #createdAt="{ record }">
-            {{ formatTimestamp(record.meta.createdAt) }}
+            {{ formatTimestamp(record.meta.createdAt).date1 }}
           </template>
           <template v-if="!simple" #action="{ record }">
             <a href="javascript:;" @click="remove(record)">删除</a>

@@ -4,7 +4,7 @@ const { getMeta, preSave } = require('../helpers');
 const InventoryLogSchema = new mongoose.Schema({
   type: String,
   num: Number,
-  user: String,
+  name: String,
 
   meta: getMeta(),
 });

@@ -15,6 +15,12 @@ export const list = (data) => {
     data
   );
 };
+export const listOrd = (data) => {
+  return get(
+    '/vaccine/listOrd',
+    data
+  );
+};
 
 export const remove = (id) => {
   return del(
