@@ -1,6 +1,7 @@
 const Router = require('@koa/router');
 const mongoose = require('mongoose');
 const { getBody } = require('../../helpers/utils');
+const Crypt = require('../../helpers/crypt');
 const jwt = require('jsonwebtoken');
 const config = require('../../project.config');
 
@@ -66,6 +67,8 @@ router.post('/register', async (ctx) => {
     account,
     password,
   });
+  // 密码加密存储
+  user.password = Crypt.encrypt(user.password);
 
   // 把创建的用户同步到 mongodb
   const res = await user.save();
@@ -118,8 +121,8 @@ router.post('/login', async (ctx) => {
     character: one.character,
     _id: one._id,
   };
-
-  if (one.password === password) {
+  const checkPassword = Crypt.decrypt(password, one.password);
+  if (checkPassword) {
     ctx.body = {
       code: 1,
       msg: '登入成功',

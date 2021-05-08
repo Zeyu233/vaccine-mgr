@@ -64,7 +64,7 @@ const routes = [
         path: 'repStatistics',
         name: 'RepStatistics',
         component: () => import(/* webpackChunkName: "Dashboard" */ '../views/RepStatistics/index.vue'),
-      },
+      }
     ],
   },
 ];
