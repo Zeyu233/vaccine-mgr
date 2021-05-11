@@ -148,6 +148,10 @@ export default defineComponent({
         onOk: async () => {
           const el = document.querySelector('.__vaccine_input_count');
           let num = el.value;
+  　　　　if (!(/(^[1-9]\d*$)/.test(num))) { 
+              message.error("输入的不是正整数"); 
+              return; 
+    　　　}
 
           const res = await vaccine.updateCount({
             id: record._id,

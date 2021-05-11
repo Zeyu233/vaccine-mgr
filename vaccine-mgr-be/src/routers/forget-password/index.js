@@ -2,6 +2,7 @@ const Router = require('@koa/router');
 const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const config  = require('../../project.config');
+const Crypt = require('../../helpers/crypt');
 
 const ForgetPassword = mongoose.model('ForgetPassword');
 const User = mongoose.model('User');''
@@ -119,6 +120,7 @@ router.post('/update/status', async (ctx) => {
     }).exec();
 
     if (user) {
+      
       user.password = config.DEFAULT_PASSWORD;
 
       await user.save();

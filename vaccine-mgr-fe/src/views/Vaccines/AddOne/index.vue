@@ -13,8 +13,8 @@
         <a-form-item label="价格">
           <a-input-number v-model:value="addForm.price" :min="0" :max="99999999999" />
         </a-form-item>
-        <a-form-item label="保质期">
-          <a-input v-model:value="addForm.expirationDate" />
+        <a-form-item label="保质期(天)">
+          <a-input v-model:value="addForm.expirationDate" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "/>
         </a-form-item>
         <a-form-item label="生产日期">
           <a-date-picker v-model:value="addForm.producedDate" />
@@ -34,7 +34,7 @@
           </a-select>
         </a-form-item>
         <a-form-item label="库存">
-          <a-input v-model:value="addForm.count" />
+          <a-input v-model:value="addForm.count" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " />
         </a-form-item>
       </a-form>
     </a-modal>

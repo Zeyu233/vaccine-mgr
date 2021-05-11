@@ -63,6 +63,12 @@ export default defineComponent({
         return;
       }
 
+      var reg = /^[\w]{6,12}$/
+      if(!regForm.password.match(reg)){
+          message.error("密码只能为6-12位，只能是字母、数字和下划线");
+          return;
+      } 
+
       const res = await auth.register(
         regForm.account,
         regForm.password,
@@ -72,6 +78,7 @@ export default defineComponent({
       result(res)
         .success((data) => {
           message.success(data.msg);
+          router.replace('/login');
         });
     };
 

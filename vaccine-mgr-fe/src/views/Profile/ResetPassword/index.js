@@ -22,6 +22,11 @@ export default defineComponent({
         message.error('两次输入密码不同');
         return;
       }
+      var reg = /^[\w]{6,12}$/
+      if(!newPassword.match(reg)){
+          message.error("密码只能为6-12位，只能是字母、数字和下划线");
+          return;
+      } 
 
       const res = await profile.resetPassword(
         newPassword,

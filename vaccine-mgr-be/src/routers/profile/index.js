@@ -2,6 +2,7 @@ const Router = require('@koa/router');
 const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 const config = require('../../project.config');
+const Crypt = require('../../helpers/crypt');
 const { verify, getToken } = require('../../helpers/token');
 
 const User = mongoose.model('User');
@@ -32,7 +33,9 @@ router.post('/update/password', async (ctx) => {
     return;
   }
 
-  if (user.password !== oldPassword) {
+  // console.log(oldPassword,user.password)
+  // console.log(Crypt.decrypt(oldPassword,user.password))
+  if (!Crypt.decrypt(oldPassword,user.password)) {
     ctx.body = {
       msg: '密码校验失败',
       code: 0,
@@ -41,7 +44,7 @@ router.post('/update/password', async (ctx) => {
     return;
   }
 
-  user.password = password;
+  user.password = Crypt.encrypt(password);
 
   await user.save();
 
