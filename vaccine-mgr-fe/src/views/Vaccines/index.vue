@@ -30,7 +30,7 @@
             &nbsp;
             <a-upload
               @change="onUploadChange"
-              action="http://localhost:3000/upload/file"
+              action="http://1.14.166.33/upload/file"
               :headers="headers"
             >
             <!-- :headers="headers" -->

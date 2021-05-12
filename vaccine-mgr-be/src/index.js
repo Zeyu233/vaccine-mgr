@@ -7,7 +7,7 @@ const registerRoutes = require('./routers');
 const { middleware: koaJwtMiddleware, checkUser, catchTokenError } = require('./helpers/token');
 const { logMiddleware } = require('./helpers/log');
 const cors = require('@koa/cors');
-const path = require('path');
+// const path = require('path');
 const config = require('./project.config');
 
 const app = new Koa();

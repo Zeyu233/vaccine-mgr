@@ -6,5 +6,5 @@ module.exports = {
   JWT_SECRET: 'vaccine-mgr',
   UPLOAD_DIR: path.resolve(__dirname, '../upload'),
 
-  SERVER_PORT: 3000,
+  SERVER_PORT: 80,
 };
