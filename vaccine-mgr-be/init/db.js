@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { connect } = require('../src/db/index');
 const character = require('../src/helpers/character');
+const Crypt = require('../src/helpers/crypt');
 
 const { defaultCharacters } = character;
 
@@ -17,7 +18,7 @@ connect()
 
     const user = new User({
       account: 'admin',
-      password: 'admin',
+      password: Crypt.encrypt('admin'),
       character: characterList.find(item => (item.name === 'admin'))._id,
     });
 
